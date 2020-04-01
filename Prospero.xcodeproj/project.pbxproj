@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		147C94AF2435556B001B6968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94AE2435556B001B6968 /* AppDelegate.swift */; };
+		147C94B12435556B001B6968 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94B02435556B001B6968 /* SceneDelegate.swift */; };
+		147C94B32435556B001B6968 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94B22435556B001B6968 /* ContentView.swift */; };
+		147C94B52435556F001B6968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147C94B42435556F001B6968 /* Assets.xcassets */; };
+		147C94B82435556F001B6968 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147C94B72435556F001B6968 /* Preview Assets.xcassets */; };
+		147C94BB2435556F001B6968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147C94B92435556F001B6968 /* LaunchScreen.storyboard */; };
+		147C94C62435556F001B6968 /* ProsperoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94C52435556F001B6968 /* ProsperoTests.swift */; };
+		147C94D12435556F001B6968 /* ProsperoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94D02435556F001B6968 /* ProsperoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		147C94C22435556F001B6968 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 147C94A32435556B001B6968 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 147C94AA2435556B001B6968;
+			remoteInfo = Prospero;
+		};
+		147C94CD2435556F001B6968 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 147C94A32435556B001B6968 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 147C94AA2435556B001B6968;
+			remoteInfo = Prospero;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		147C94AB2435556B001B6968 /* Prospero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prospero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		147C94AE2435556B001B6968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		147C94B02435556B001B6968 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		147C94B22435556B001B6968 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		147C94B42435556F001B6968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		147C94B72435556F001B6968 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		147C94BA2435556F001B6968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		147C94BC2435556F001B6968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		147C94C12435556F001B6968 /* ProsperoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProsperoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		147C94C52435556F001B6968 /* ProsperoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsperoTests.swift; sourceTree = "<group>"; };
+		147C94C72435556F001B6968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		147C94CC2435556F001B6968 /* ProsperoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProsperoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		147C94D02435556F001B6968 /* ProsperoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsperoUITests.swift; sourceTree = "<group>"; };
+		147C94D22435556F001B6968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		147C94A82435556B001B6968 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147C94BE2435556F001B6968 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147C94C92435556F001B6968 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		147C94A22435556B001B6968 = {
+			isa = PBXGroup;
+			children = (
+				147C94AD2435556B001B6968 /* Prospero */,
+				147C94C42435556F001B6968 /* ProsperoTests */,
+				147C94CF2435556F001B6968 /* ProsperoUITests */,
+				147C94AC2435556B001B6968 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		147C94AC2435556B001B6968 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				147C94AB2435556B001B6968 /* Prospero.app */,
+				147C94C12435556F001B6968 /* ProsperoTests.xctest */,
+				147C94CC2435556F001B6968 /* ProsperoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		147C94AD2435556B001B6968 /* Prospero */ = {
+			isa = PBXGroup;
+			children = (
+				147C94AE2435556B001B6968 /* AppDelegate.swift */,
+				147C94B02435556B001B6968 /* SceneDelegate.swift */,
+				147C94B22435556B001B6968 /* ContentView.swift */,
+				147C94B42435556F001B6968 /* Assets.xcassets */,
+				147C94B92435556F001B6968 /* LaunchScreen.storyboard */,
+				147C94BC2435556F001B6968 /* Info.plist */,
+				147C94B62435556F001B6968 /* Preview Content */,
+			);
+			path = Prospero;
+			sourceTree = "<group>";
+		};
+		147C94B62435556F001B6968 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				147C94B72435556F001B6968 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		147C94C42435556F001B6968 /* ProsperoTests */ = {
+			isa = PBXGroup;
+			children = (
+				147C94C52435556F001B6968 /* ProsperoTests.swift */,
+				147C94C72435556F001B6968 /* Info.plist */,
+			);
+			path = ProsperoTests;
+			sourceTree = "<group>";
+		};
+		147C94CF2435556F001B6968 /* ProsperoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				147C94D02435556F001B6968 /* ProsperoUITests.swift */,
+				147C94D22435556F001B6968 /* Info.plist */,
+			);
+			path = ProsperoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		147C94AA2435556B001B6968 /* Prospero */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 147C94D52435556F001B6968 /* Build configuration list for PBXNativeTarget "Prospero" */;
+			buildPhases = (
+				147C94A72435556B001B6968 /* Sources */,
+				147C94A82435556B001B6968 /* Frameworks */,
+				147C94A92435556B001B6968 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Prospero;
+			productName = Prospero;
+			productReference = 147C94AB2435556B001B6968 /* Prospero.app */;
+			productType = "com.apple.product-type.application";
+		};
+		147C94C02435556F001B6968 /* ProsperoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 147C94D82435556F001B6968 /* Build configuration list for PBXNativeTarget "ProsperoTests" */;
+			buildPhases = (
+				147C94BD2435556F001B6968 /* Sources */,
+				147C94BE2435556F001B6968 /* Frameworks */,
+				147C94BF2435556F001B6968 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				147C94C32435556F001B6968 /* PBXTargetDependency */,
+			);
+			name = ProsperoTests;
+			productName = ProsperoTests;
+			productReference = 147C94C12435556F001B6968 /* ProsperoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		147C94CB2435556F001B6968 /* ProsperoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 147C94DB2435556F001B6968 /* Build configuration list for PBXNativeTarget "ProsperoUITests" */;
+			buildPhases = (
+				147C94C82435556F001B6968 /* Sources */,
+				147C94C92435556F001B6968 /* Frameworks */,
+				147C94CA2435556F001B6968 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				147C94CE2435556F001B6968 /* PBXTargetDependency */,
+			);
+			name = ProsperoUITests;
+			productName = ProsperoUITests;
+			productReference = 147C94CC2435556F001B6968 /* ProsperoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		147C94A32435556B001B6968 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				TargetAttributes = {
+					147C94AA2435556B001B6968 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					147C94C02435556F001B6968 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 147C94AA2435556B001B6968;
+					};
+					147C94CB2435556F001B6968 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 147C94AA2435556B001B6968;
+					};
+				};
+			};
+			buildConfigurationList = 147C94A62435556B001B6968 /* Build configuration list for PBXProject "Prospero" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 147C94A22435556B001B6968;
+			productRefGroup = 147C94AC2435556B001B6968 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				147C94AA2435556B001B6968 /* Prospero */,
+				147C94C02435556F001B6968 /* ProsperoTests */,
+				147C94CB2435556F001B6968 /* ProsperoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		147C94A92435556B001B6968 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				147C94BB2435556F001B6968 /* LaunchScreen.storyboard in Resources */,
+				147C94B82435556F001B6968 /* Preview Assets.xcassets in Resources */,
+				147C94B52435556F001B6968 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147C94BF2435556F001B6968 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147C94CA2435556F001B6968 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		147C94A72435556B001B6968 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				147C94AF2435556B001B6968 /* AppDelegate.swift in Sources */,
+				147C94B12435556B001B6968 /* SceneDelegate.swift in Sources */,
+				147C94B32435556B001B6968 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147C94BD2435556F001B6968 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				147C94C62435556F001B6968 /* ProsperoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		147C94C82435556F001B6968 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				147C94D12435556F001B6968 /* ProsperoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		147C94C32435556F001B6968 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 147C94AA2435556B001B6968 /* Prospero */;
+			targetProxy = 147C94C22435556F001B6968 /* PBXContainerItemProxy */;
+		};
+		147C94CE2435556F001B6968 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 147C94AA2435556B001B6968 /* Prospero */;
+			targetProxy = 147C94CD2435556F001B6968 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		147C94B92435556F001B6968 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				147C94BA2435556F001B6968 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		147C94D32435556F001B6968 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		147C94D42435556F001B6968 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		147C94D62435556F001B6968 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Prospero/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Prospero/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospero.Prospero;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		147C94D72435556F001B6968 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Prospero/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Prospero/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospero.Prospero;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		147C94D92435556F001B6968 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProsperoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospero.ProsperoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prospero.app/Prospero";
+			};
+			name = Debug;
+		};
+		147C94DA2435556F001B6968 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProsperoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospero.ProsperoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prospero.app/Prospero";
+			};
+			name = Release;
+		};
+		147C94DC2435556F001B6968 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProsperoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospero.ProsperoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Prospero;
+			};
+			name = Debug;
+		};
+		147C94DD2435556F001B6968 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProsperoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospero.ProsperoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Prospero;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		147C94A62435556B001B6968 /* Build configuration list for PBXProject "Prospero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147C94D32435556F001B6968 /* Debug */,
+				147C94D42435556F001B6968 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		147C94D52435556F001B6968 /* Build configuration list for PBXNativeTarget "Prospero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147C94D62435556F001B6968 /* Debug */,
+				147C94D72435556F001B6968 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		147C94D82435556F001B6968 /* Build configuration list for PBXNativeTarget "ProsperoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147C94D92435556F001B6968 /* Debug */,
+				147C94DA2435556F001B6968 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		147C94DB2435556F001B6968 /* Build configuration list for PBXNativeTarget "ProsperoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147C94DC2435556F001B6968 /* Debug */,
+				147C94DD2435556F001B6968 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 147C94A32435556B001B6968 /* Project object */;
+}
