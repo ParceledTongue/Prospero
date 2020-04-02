@@ -9,12 +9,29 @@ import Foundation
 
 enum TestData {
 
-    static func generateRandomShow() -> Show {
-        Show(
-            id: UUID(),
-            name: showNames.randomElement()!,
-            theatre: theatres.randomElement()!
+    static func generateRandomShow(id: Int? = nil) -> Show {
+
+        let id = id ?? (10000...99999).randomElement()!
+        let seed = generateSeed(from: id)
+
+        return Show(
+            id: id,
+            name: showNames[Int(seed % showNames.count)],
+            theatre: theatres[seed % theatres.count]
         )
+
+    }
+
+    private static func generateSeed(from id: Int) -> Int {
+        // https://stackoverflow.com/questions/8509180/hashing-a-small-number-to-a-random-looking-64-bit-integer
+        var seed = UInt64(id)
+        seed += 1
+        seed ^= seed >> 33
+        seed &*= 0xff51afd7ed558ccd
+        seed ^= seed >> 33
+        seed &*= 0xc4ceb9fe1a85ec53
+        seed ^= seed >> 33
+        return Int(seed % UInt64(Int.max))
     }
 
 }
@@ -253,7 +270,7 @@ private let showNames = [
     "Mr Peter’s Connections",
     "Mule Bone",
     "Murder in the Cathedral",
-    "My Heart's in the Highlands]",
+    "My Heart's in the Highlands",
     "Natural Affection",
     "Next",
     "'night, Mother",

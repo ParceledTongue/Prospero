@@ -52,12 +52,12 @@ struct AddShowView: View {
                     Button(action: submitCode) {
                         Text("Submit")
                             .bold()
-                            .disabled(showCode == nil || isProcessing)
-                        if isProcessing {
-                            ActivityIndicator(
-                                isAnimating: .constant(true), style: .medium
-                            )
-                        }
+                    }
+                        .disabled(showCode == nil || isProcessing)
+                    if isProcessing {
+                        ActivityIndicator(
+                            isAnimating: .constant(true), style: .medium
+                        )
                     }
                 }
 
@@ -78,8 +78,8 @@ struct AddShowView: View {
         simulateShowFetch()
             .ensure { self.isProcessing = false }
             .done { newShow in
-                self.onSuccess(newShow)
                 self.isAddingShow = false
+                self.onSuccess(newShow)
             }
             .catch { error in
                 self.errorString = error.localizedDescription
@@ -93,7 +93,7 @@ struct AddShowView: View {
                 guard let showCode = self.showCode, showCode % 3 != 0 else {
                     throw ShowFetchFailure.badCode
                 }
-                return TestData.generateRandomShow()
+                return TestData.generateRandomShow(id: self.showCode)
             }
     }
 

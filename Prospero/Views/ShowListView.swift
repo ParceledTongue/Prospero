@@ -13,12 +13,15 @@ struct ShowListView: View {
     @State var shows: [Show]
     @State private var isAddingShow: Bool = false
     @State private var deletionContext: DeletionContext?
+    @State private var selection: Int?
 
     var body: some View {
 
         NavigationView {
             List {
-                ForEach(shows) { ShowRow(show: $0) }
+                ForEach(shows) {
+                    ShowRow(show: $0, selection: self.$selection)
+                }
                     .onDelete {
                         self.deletionContext = DeletionContext(offsets: $0)
                     }
@@ -29,9 +32,10 @@ struct ShowListView: View {
                     trailing: EditButton().disabled(shows.isEmpty)
                 )
                 .sheet(isPresented: $isAddingShow) {
-                    AddShowView(isAddingShow: self.$isAddingShow) { newShow in
-                        self.shows.append(newShow)
-                    }
+                    AddShowView(
+                        isAddingShow: self.$isAddingShow,
+                        onSuccess: self.addShow
+                    )
                 }
                 .alert(
                     item: $deletionContext,
@@ -53,6 +57,15 @@ struct ShowListView: View {
                     .foregroundColor(.accentColor)
             }
         }
+    }
+
+    private func addShow(_ newShow: Show) {
+        if !shows.contains(where: { $0.id == newShow.id }) {
+            shows.insert(newShow, at: shows.firstIndex(where: {
+                alphabeticalCollator(newShow, $0)
+            }) ?? shows.endIndex)
+        }
+        selection = newShow.id
     }
 
     private func deletionConfirmationAlert(_ ctx: DeletionContext) -> Alert {
@@ -86,9 +99,15 @@ private struct ShowRow: View {
 
     let show: Show
 
+    @Binding var selection: Int?
+
     var body: some View {
 
-        NavigationLink(destination: ShowView(show: show)) {
+        NavigationLink(
+            destination: ShowView(show: show),
+            tag: show.id,
+            selection: $selection
+        ) {
             VStack(alignment: .leading) {
                 Text(show.name)
                     .font(.headline)
@@ -111,4 +130,14 @@ struct ShowListView_Previews: PreviewProvider {
     static var previews: some View {
         ShowListView(shows: [])
     }
+}
+
+private let alphabeticalCollator: (Show, Show) -> Bool = { lhs, rhs in
+    let lhs = lhs.name.lowercased().hasPrefix("the ")
+        ? String(lhs.name.lowercased().dropFirst(4))
+        : lhs.name.lowercased()
+    let rhs = rhs.name.lowercased().hasPrefix("the ")
+        ? String(rhs.name.lowercased().dropFirst(4))
+        : rhs.name.lowercased()
+    return lhs < rhs
 }

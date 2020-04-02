@@ -8,7 +8,7 @@
 import Foundation
 
 struct Show: Identifiable {
-    let id: UUID
+    let id: Int
     let name: String
     let theatre: Theatre
 }

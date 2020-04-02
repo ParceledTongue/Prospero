@@ -90,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140E53272435AEEF007936B7 /* Mockup */ = {
+			isa = PBXGroup;
+			children = (
+				147C94E824355CAF001B6968 /* TestData.swift */,
+			);
+			path = Mockup;
+			sourceTree = "<group>";
+		};
 		147C94A22435556B001B6968 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +121,7 @@
 		147C94AD2435556B001B6968 /* Prospero */ = {
 			isa = PBXGroup;
 			children = (
+				140E53272435AEEF007936B7 /* Mockup */,
 				147C94E524355C60001B6968 /* Views */,
 				147C94DE2435563A001B6968 /* Models */,
 				147C94AE2435556B001B6968 /* AppDelegate.swift */,
@@ -121,7 +130,6 @@
 				147C94B92435556F001B6968 /* LaunchScreen.storyboard */,
 				147C94BC2435556F001B6968 /* Info.plist */,
 				147C94B62435556F001B6968 /* Preview Content */,
-				147C94E824355CAF001B6968 /* TestData.swift */,
 			);
 			path = Prospero;
 			sourceTree = "<group>";
