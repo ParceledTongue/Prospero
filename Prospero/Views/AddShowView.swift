@@ -11,16 +11,17 @@ import PromiseKit
 struct AddShowView: View {
 
     @Binding var isAddingShow: Bool
-    var onSuccess: (Show) -> ()
+    let onSuccess: (Show) -> Void
 
     @State private var showCodeString: String = ""
-    private var showCode: Int? {
-        Int(showCodeString).flatMap { (10000...99999).contains($0) ? $0 : nil }
-    }
-
     @State private var isProcessing = false
-
     @State private var errorString = ""
+    @State var currentCancelContext: CancelContext?
+
+    private var showCode: Int? {
+        let trimmedString = showCodeString.trimmingCharacters(in: .whitespaces)
+        return trimmedString.count == 5 ? Int(trimmedString) : nil
+    }
 
     var body: some View {
 
@@ -37,7 +38,7 @@ struct AddShowView: View {
                     .foregroundColor(.secondary)
 
                 TextField(
-                    "Show Code",
+                    "Enter Code", // TODO localize
                     text: $showCodeString,
                     onCommit: submitCode
                 )
@@ -45,28 +46,44 @@ struct AddShowView: View {
                     .padding([.leading, .trailing])
                     .textContentType(.oneTimeCode)
                     .keyboardType(.numberPad)
+                    .multilineTextAlignment(.center)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .disabled(isProcessing)
 
                 HStack {
+
                     Button(action: submitCode) {
+
                         Text("Submit")
                             .bold()
+
                     }
                         .disabled(showCode == nil || isProcessing)
+
                     if isProcessing {
+
                         ActivityIndicator(
                             isAnimating: .constant(true), style: .medium
                         )
+
                     }
+
+                }
+
+                Button(action: { self.isAddingShow = false }) {
+
+                    Text("Cancel")
+
                 }
 
                 Text(errorString)
-                    .foregroundColor(.red)
+                    .foregroundColor(Color(.systemRed))
 
             }
+
         }
             .padding()
+            .onDisappear { self.currentCancelContext?.cancel() }
 
     }
 
@@ -76,7 +93,10 @@ struct AddShowView: View {
         isProcessing = true
 
         simulateShowFetch()
-            .ensure { self.isProcessing = false }
+            .ensure {
+                self.isProcessing = false
+                self.currentCancelContext = nil
+            }
             .done { newShow in
                 self.isAddingShow = false
                 self.onSuccess(newShow)
@@ -87,14 +107,21 @@ struct AddShowView: View {
 
     }
 
-    private func simulateShowFetch() -> Promise<Show> {
-        after(.milliseconds(.random(in: 500...3000)))
-            .map { _ in
+    private func simulateShowFetch() -> CancellablePromise<Show> {
+
+        let promise = after(.milliseconds(.random(in: 500...3000)))
+            .map { () -> Show in
                 guard let showCode = self.showCode, showCode % 3 != 0 else {
                     throw ShowFetchFailure.badCode
                 }
                 return TestData.generateRandomShow(id: self.showCode)
             }
+            .cancellize()
+
+        currentCancelContext = promise.cancelContext
+
+        return promise
+
     }
 
 }
@@ -112,7 +139,6 @@ private enum ShowFetchFailure: LocalizedError {
 }
 
 struct AddShowView_Previews: PreviewProvider {
-
     static var previews: some View {
         AddShowView(
             isAddingShow: .constant(true)
@@ -121,5 +147,4 @@ struct AddShowView_Previews: PreviewProvider {
             dump(show)
         }
     }
-
 }

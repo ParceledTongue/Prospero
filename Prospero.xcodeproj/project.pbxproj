@@ -22,6 +22,9 @@
 		147C94E22435576E001B6968 /* Theatre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94E12435576E001B6968 /* Theatre.swift */; };
 		147C94E724355C75001B6968 /* ShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94E624355C75001B6968 /* ShowView.swift */; };
 		147C94E924355CAF001B6968 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94E824355CAF001B6968 /* TestData.swift */; };
+		14F13CF72435D08C00304366 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14F13CF62435D08C00304366 /* .swiftlint.yml */; };
+		14F13CF92435D1AB00304366 /* show-names.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14F13CF82435D1AB00304366 /* show-names.txt */; };
+		14F13CFB2435D1C300304366 /* theatre-names.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14F13CFA2435D1C300304366 /* theatre-names.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		147C94E12435576E001B6968 /* Theatre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theatre.swift; sourceTree = "<group>"; };
 		147C94E624355C75001B6968 /* ShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowView.swift; sourceTree = "<group>"; };
 		147C94E824355CAF001B6968 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		14F13CF62435D08C00304366 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		14F13CF82435D1AB00304366 /* show-names.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "show-names.txt"; sourceTree = "<group>"; };
+		14F13CFA2435D1C300304366 /* theatre-names.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "theatre-names.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				147C94E824355CAF001B6968 /* TestData.swift */,
+				14F13CF82435D1AB00304366 /* show-names.txt */,
+				14F13CFA2435D1C300304366 /* theatre-names.txt */,
 			);
 			path = Mockup;
 			sourceTree = "<group>";
@@ -101,6 +109,7 @@
 		147C94A22435556B001B6968 = {
 			isa = PBXGroup;
 			children = (
+				14F13CF62435D08C00304366 /* .swiftlint.yml */,
 				147C94AD2435556B001B6968 /* Prospero */,
 				147C94C42435556F001B6968 /* ProsperoTests */,
 				147C94CF2435556F001B6968 /* ProsperoUITests */,
@@ -190,6 +199,7 @@
 				147C94A72435556B001B6968 /* Sources */,
 				147C94A82435556B001B6968 /* Frameworks */,
 				147C94A92435556B001B6968 /* Resources */,
+				14F13CF52435CF1800304366 /* Lint */,
 			);
 			buildRules = (
 			);
@@ -289,9 +299,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F13CF72435D08C00304366 /* .swiftlint.yml in Resources */,
 				147C94BB2435556F001B6968 /* LaunchScreen.storyboard in Resources */,
+				14F13CF92435D1AB00304366 /* show-names.txt in Resources */,
 				147C94B82435556F001B6968 /* Preview Assets.xcassets in Resources */,
 				147C94B52435556F001B6968 /* Assets.xcassets in Resources */,
+				14F13CFB2435D1C300304366 /* theatre-names.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +323,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14F13CF52435CF1800304366 /* Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Lint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed. Download from https://github.com/realm/SwiftLint.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		147C94A72435556B001B6968 /* Sources */ = {

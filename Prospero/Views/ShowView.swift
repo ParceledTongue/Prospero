@@ -14,10 +14,19 @@ struct ShowView: View {
     var body: some View {
 
         ScrollView {
-            Text("This is a placeholder interface for \(show.name). The show will be performed at \(show.theatre.name).")
+
+            VStack(alignment: .leading) {
+
+                Text("This is a placeholder interface for \(show.name). The show will be performed at \(show.theatre.name).")
+                    .multilineTextAlignment(.leading)
+                    .foregroundColor(.secondary)
+
+            }
                 .padding()
+
         }
             .navigationBarTitle(show.name)
+
     }
 
 }
