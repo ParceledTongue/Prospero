@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 enum TestData {
 
@@ -36,6 +37,18 @@ enum TestData {
 
     }
 
+    static func simulateFetch(showCode: Int) -> Promise<Show> {
+
+        after(.milliseconds(.random(in: 500...3000)))
+            .map { _ in
+                guard showCode % 3 != 0 else {
+                    throw ShowFetchFailure.badCode
+                }
+                return TestData.generateRandomShow(id: showCode)
+            }
+
+    }
+
     private static func generateSeed(from id: Int) -> Int {
         // https://stackoverflow.com/questions/8509180/hashing-a-small-number-to-a-random-looking-64-bit-integer
         var seed = UInt64(id)
@@ -46,6 +59,18 @@ enum TestData {
         seed &*= 0xc4ceb9fe1a85ec53
         seed ^= seed >> 33
         return Int(seed % UInt64(Int.max))
+    }
+
+}
+
+enum ShowFetchFailure: LocalizedError {
+
+    case badCode
+
+    var errorDescription: String? {
+        switch self {
+        case .badCode: return "This code is not valid. It may have expired." // TODO localize
+        }
     }
 
 }

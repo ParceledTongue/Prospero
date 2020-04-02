@@ -89,51 +89,31 @@ struct AddShowView: View {
 
     private func submitCode() {
 
+        guard let showCode = showCode else {
+            NSLog("Bad state: Submit button was enabled without valid show code.")
+            return
+        }
+
         errorString = ""
         isProcessing = true
 
-        simulateShowFetch()
-            .ensure {
-                self.isProcessing = false
-                self.currentCancelContext = nil
-            }
-            .done { newShow in
-                self.isAddingShow = false
-                self.onSuccess(newShow)
-            }
-            .catch { error in
-                self.errorString = error.localizedDescription
-            }
-
-    }
-
-    private func simulateShowFetch() -> CancellablePromise<Show> {
-
-        let promise = after(.milliseconds(.random(in: 500...3000)))
-            .map { () -> Show in
-                guard let showCode = self.showCode, showCode % 3 != 0 else {
-                    throw ShowFetchFailure.badCode
-                }
-                return TestData.generateRandomShow(id: self.showCode)
-            }
+        let fetchPromise = TestData.simulateFetch(showCode: showCode)
             .cancellize()
 
-        currentCancelContext = promise.cancelContext
+        currentCancelContext = fetchPromise.cancelContext
 
-        return promise
-
-    }
-
-}
-
-private enum ShowFetchFailure: LocalizedError {
-
-    case badCode
-
-    var errorDescription: String? {
-        switch self {
-        case .badCode: return "This code is not valid. It may have expired." // TODO localize
+        firstly {
+            fetchPromise
+        }.ensure {
+            self.isProcessing = false
+            self.currentCancelContext = nil
+        }.done { newShow in
+            self.isAddingShow = false
+            self.onSuccess(newShow)
+        }.catch { error in
+            self.errorString = error.localizedDescription
         }
+
     }
 
 }
