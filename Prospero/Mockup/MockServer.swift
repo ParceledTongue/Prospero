@@ -13,13 +13,13 @@ struct MockServer {
     var latency = DispatchTimeInterval.milliseconds(100)
 
     func getProduction(for code: String) -> Promise<Production?> {
-        after(latency).map { _ in codeMap[code] }
+        after(latency).map { _ in codeMap[code.uppercased()] }
     }
 
     private let codeMap = [
-        "11111" : DemoProductions.constellations,
-        "22222" : DemoProductions.stupidFuckingBird,
-        "33333" : DemoProductions.worldBuilders
+        "CNSTL" : DemoProductions.constellations,
+        "STUFB" : DemoProductions.stupidFuckingBird,
+        "WRLDB" : DemoProductions.worldBuilders,
     ]
 }
 

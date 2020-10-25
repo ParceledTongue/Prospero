@@ -17,35 +17,33 @@ struct CodeField: View {
 
     let length: Int
 
-    var onEditingChanged: (Bool) -> Void = { _ in }
-
-    var onCommit: () -> Void = {}
-
     var body: some View {
         ZStack(alignment: Alignment.center) {
             Text(displayTextFor(code: code))
                 .font(CodeField.inputFont)
             // Invisible text field to handle actual input.
-            TextField("", text: $code, onEditingChanged: onEditingChanged, onCommit: onCommit)
+            TextField("", text: $code)
                 .font(CodeField.inputFont)
                 .multilineTextAlignment(.center)
-                .keyboardType(.numberPad)
+                .keyboardType(.alphabet)
+                .autocapitalization(.allCharacters)
+                .disableAutocorrection(true)
                 .colorMultiply(.clear)
                 .onChange(of: code, perform: { _ in
-                    code = String(code.prefix(length))
+                    code = code.trimmingCharacters(in: CharacterSet.letters.inverted)
                 })
         }
     }
 
     private func displayTextFor(code: String) -> String {
         String(
-            code.appending(
-                String(
-                    repeating: CodeField.placeholder,
-                    count: max(0, length - code.count)
-                )
-            ).flatMap { "\($0) " }
-        ).trimmingCharacters(in: .whitespacesAndNewlines)
+            code.appending(String(
+                repeating: CodeField.placeholder,
+                count: max(0, length - code.count)
+            ))
+            .flatMap { "\($0) " }
+            .dropLast()
+        ).uppercased()
     }
 
 }
