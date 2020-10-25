@@ -44,7 +44,7 @@ struct ProductionCodeEntryView: View {
 
             if !errorMessage.isEmpty {
                 Text(errorMessage)
-                    .font(.footnote)
+                    .font(.system(.footnote, design: .rounded))
                     .foregroundColor(.red)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
@@ -53,13 +53,13 @@ struct ProductionCodeEntryView: View {
 
             if isShowingHelp {
                 Text("You should have recieved a short code for your production. If you're unable to find this code, reach out to your production team.")
-                    .font(.footnote)
+                    .font(.system(.footnote, design: .rounded))
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
             } else {
                 Button("Production code?") { isShowingHelp = true }
-                    .font(.footnote)
+                    .font(.system(.footnote, design: .rounded))
             }
         }
     }

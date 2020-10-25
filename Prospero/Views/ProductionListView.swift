@@ -84,9 +84,9 @@ private struct ProductionRow: View {
         ) {
             VStack(alignment: .leading) {
                 Text(production.show.title)
-                    .font(.headline)
+                    .font(.system(.headline, design: .rounded))
                 Text(production.company.name)
-                    .font(Font.subheadline.smallCaps())
+                    .font(Font.system(.subheadline, design: .rounded).smallCaps())
                     .foregroundColor(.secondary)
             }
         }

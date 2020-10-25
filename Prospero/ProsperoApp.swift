@@ -12,7 +12,6 @@ struct ProsperoApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environment(\.font, Font.system(.body, design: .rounded))
                 .environmentObject(AppConfiguration())
         }
     }
@@ -21,7 +20,6 @@ struct ProsperoApp: App {
 struct ProsperoApp_Previews: PreviewProvider {
     static var previews: some View {
         RootView()
-            .environment(\.font, Font.system(.body, design: .rounded))
             .environmentObject(AppConfiguration())
     }
 }
