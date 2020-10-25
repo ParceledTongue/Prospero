@@ -10,11 +10,13 @@ import CoreLocation
 
 struct ProductionListView: View {
 
-    @Environment(\.editMode) var editMode
+//    @Environment(\.editMode) var editMode
 
     @EnvironmentObject var userProductions: UserProductions
 
     @Binding var selection: Int?
+
+    @State private var editMode = EditMode.inactive
 
     @State private var isAddingProduction: Bool = false
 
@@ -30,14 +32,15 @@ struct ProductionListView: View {
 
                 addProductionRow
             }
-            .navigationBarTitle("Productions")
             .navigationBarItems(
                 trailing: EditButton().disabled(userProductions.list.isEmpty)
             )
+            .environment(\.editMode, $editMode)
+            .navigationBarTitle("Productions")
             .sheet(isPresented: $isAddingProduction) {
                 AddProductionView(
                     isAddingProduction: $isAddingProduction,
-                    onSuccess: addProduction
+                    onSuccess: addAndOpenProduction
                 )
             }
         }
@@ -53,11 +56,10 @@ struct ProductionListView: View {
                     .foregroundColor(.accentColor)
             }
         }
-        // XXX This doesn't seem to listen to `editMode`... Think I need to map the var somehow
-        .disabled(editMode?.wrappedValue != .inactive)
+        .disabled(editMode != .inactive)
     }
 
-    func addProduction(_ newProduction: Production) {
+    func addAndOpenProduction(_ newProduction: Production) {
         userProductions.addProduction(newProduction)
         selection = newProduction.id
     }
