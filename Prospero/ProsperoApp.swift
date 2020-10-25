@@ -9,21 +9,19 @@ import SwiftUI
 
 @main
 struct ProsperoApp: App {
-    let onboarded = false
-
     var body: some Scene {
         WindowGroup {
-            RootView(needsOnboarding: true)
+            RootView()
                 .environment(\.font, Font.system(.body, design: .rounded))
-                .environmentObject(UserProductions())
+                .environmentObject(AppConfiguration())
         }
     }
 }
 
 struct ProsperoApp_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(needsOnboarding: true)
+        RootView()
             .environment(\.font, Font.system(.body, design: .rounded))
-            .environmentObject(UserProductions())
+            .environmentObject(AppConfiguration())
     }
 }

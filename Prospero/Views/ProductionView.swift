@@ -12,15 +12,10 @@ struct ProductionView: View {
     let production: Production
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                Text("This is a placeholder interface for \(production.show.title). The show will be performed at \(production.company.name).")
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(.secondary)
-            }
-            .padding()
-        }
-        .navigationBarTitle(production.show.title)
+        Text("// TODO")
+            .font(.system(.largeTitle, design: .monospaced))
+            .foregroundColor(.secondary)
+            .navigationBarTitle(production.show.title)
     }
 
 }

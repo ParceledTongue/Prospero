@@ -27,7 +27,8 @@
 		923DB8AC2545031B009FB5E0 /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8AB2545031B009FB5E0 /* Shake.swift */; };
 		923DB8B5254505ED009FB5E0 /* AnyTransition+horizontalProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8B4254505ED009FB5E0 /* AnyTransition+horizontalProgression.swift */; };
 		923DB8C025450A50009FB5E0 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8BF25450A50009FB5E0 /* RootView.swift */; };
-		923DB8C525450B08009FB5E0 /* UserProductions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8C425450B08009FB5E0 /* UserProductions.swift */; };
+		923DB8C525450B08009FB5E0 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8C425450B08009FB5E0 /* AppConfiguration.swift */; };
+		923DB8D6254529D4009FB5E0 /* NotBindingPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8D5254529D4009FB5E0 /* NotBindingPrefix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +74,8 @@
 		923DB8AB2545031B009FB5E0 /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
 		923DB8B4254505ED009FB5E0 /* AnyTransition+horizontalProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyTransition+horizontalProgression.swift"; sourceTree = "<group>"; };
 		923DB8BF25450A50009FB5E0 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		923DB8C425450B08009FB5E0 /* UserProductions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProductions.swift; sourceTree = "<group>"; };
+		923DB8C425450B08009FB5E0 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		923DB8D5254529D4009FB5E0 /* NotBindingPrefix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotBindingPrefix.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				923DB87D2544FE57009FB5E0 /* Models.swift */,
-				923DB8C425450B08009FB5E0 /* UserProductions.swift */,
+				923DB8C425450B08009FB5E0 /* AppConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				923DB8AB2545031B009FB5E0 /* Shake.swift */,
+				923DB8D5254529D4009FB5E0 /* NotBindingPrefix.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -378,10 +381,11 @@
 				923DB8972545029E009FB5E0 /* ProsperoApp.swift in Sources */,
 				923DB8C025450A50009FB5E0 /* RootView.swift in Sources */,
 				923DB8AC2545031B009FB5E0 /* Shake.swift in Sources */,
-				923DB8C525450B08009FB5E0 /* UserProductions.swift in Sources */,
+				923DB8C525450B08009FB5E0 /* AppConfiguration.swift in Sources */,
 				140E532124359049007936B7 /* AddProductionView.swift in Sources */,
 				923DB8762544FDA0009FB5E0 /* CodeField.swift in Sources */,
 				923DB8862544FEE9009FB5E0 /* MockServer.swift in Sources */,
+				923DB8D6254529D4009FB5E0 /* NotBindingPrefix.swift in Sources */,
 				147C94B32435556B001B6968 /* ProductionListView.swift in Sources */,
 				147C94E724355C75001B6968 /* ProductionView.swift in Sources */,
 				923DB8A6254502FD009FB5E0 /* MemberConfirmationView.swift in Sources */,

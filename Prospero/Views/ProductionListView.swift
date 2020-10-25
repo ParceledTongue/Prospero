@@ -10,9 +10,7 @@ import CoreLocation
 
 struct ProductionListView: View {
 
-//    @Environment(\.editMode) var editMode
-
-    @EnvironmentObject var userProductions: UserProductions
+    @EnvironmentObject var config: AppConfiguration
 
     @Binding var selection: Int?
 
@@ -23,17 +21,18 @@ struct ProductionListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(userProductions.list) {
+                ForEach(config.productions) {
                     ProductionRow(production: $0, selection: $selection)
                 }
                 .onDelete {
-                    userProductions.removeProductions(atOffsets: $0)
+                    config.removeProductions(atOffsets: $0)
                 }
 
                 addProductionRow
             }
+            .listStyle(InsetGroupedListStyle())
             .navigationBarItems(
-                trailing: EditButton().disabled(userProductions.list.isEmpty)
+                trailing: EditButton().disabled(config.productions.isEmpty)
             )
             .environment(\.editMode, $editMode)
             .navigationBarTitle("Productions")
@@ -60,8 +59,12 @@ struct ProductionListView: View {
     }
 
     func addAndOpenProduction(_ newProduction: Production) {
-        userProductions.addProduction(newProduction)
-        selection = newProduction.id
+        config.addProduction(newProduction)
+        // I think this is a SwiftUI bug... Seems like we need to wait a bit after re-adding to make
+        // sure the selection will work, but only sometimes?
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+            selection = newProduction.id
+        }
     }
 }
 
@@ -90,7 +93,11 @@ private struct ProductionRow: View {
 
 struct ProductionListView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductionListView(selection: .constant(nil))
-            .environmentObject(UserProductions())
+        Group {
+            ProductionListView(selection: .constant(nil))
+                .environmentObject(AppConfiguration())
+            ProductionListView(selection: .constant(nil))
+                .environmentObject(AppConfiguration())
+        }
     }
 }

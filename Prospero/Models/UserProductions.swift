@@ -1,5 +1,5 @@
 //
-//  UserProductions.swift
+//  AppConfiguration.swift
 //  Prospero
 //
 //  Created by Zach Palumbo on 10/24/20.
@@ -7,7 +7,8 @@
 
 import Foundation
 
-class UserProductions: ObservableObject {
+class AppConfiguration: ObservableObject {
+
     @Published private(set) var list: [Production]
 
     init(list: [Production] = []) {

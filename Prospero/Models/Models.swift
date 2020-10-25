@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Production: Identifiable {
+struct Production: Identifiable, Codable {
 
-    struct Member {
+    struct Member: Codable {
         let person: Person
         let email: String
     }
@@ -20,21 +20,31 @@ struct Production: Identifiable {
     let members: [Member]
 }
 
-struct Show {
+struct Show: Codable {
     let title: String
     let playwright: Person
 }
 
-struct Company {
+struct Company: Codable {
     let name: String
 }
 
-struct Person {
+struct Person: Codable {
 
-    struct Name {
+    struct Name: Codable {
         let first: String
         let last: String
-        let middle: String = ""
+        let middle: String?
+
+        init(
+            first: String,
+            last: String,
+            middle: String? = nil
+        ) {
+            self.first = first
+            self.last = last
+            self.middle = middle
+        }
     }
 
     let name: Name

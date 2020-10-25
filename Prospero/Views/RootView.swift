@@ -9,21 +9,19 @@ import SwiftUI
 
 struct RootView: View {
 
-    @EnvironmentObject var userProductions: UserProductions
-
-    @State var needsOnboarding: Bool
+    @EnvironmentObject var config: AppConfiguration
 
     @State var selection: Int?
 
     var body: some View {
         ProductionListView(selection: $selection)
-            .opacity(needsOnboarding ? 0 : 1)
-            .fullScreenCover(isPresented: $needsOnboarding, content: {
+            .opacity(config.isOnboarded ? 1 : 0)
+            .fullScreenCover(isPresented: !$config.isOnboarded, content: {
                 OnboardingView(
                     onCompletion: { production in
-                        userProductions.addProduction(production)
+                        config.addProduction(production)
                         selection = production.id
-                        needsOnboarding = false
+                        config.isOnboarded = true
                     }
                 )
             })
@@ -32,7 +30,7 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(needsOnboarding: true)
-            .environmentObject(UserProductions())
+        RootView()
+            .environmentObject(AppConfiguration())
     }
 }
