@@ -12,7 +12,6 @@
 		147C94B32435556B001B6968 /* ProductionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94B22435556B001B6968 /* ProductionListView.swift */; };
 		147C94B52435556F001B6968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147C94B42435556F001B6968 /* Assets.xcassets */; };
 		147C94B82435556F001B6968 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147C94B72435556F001B6968 /* Preview Assets.xcassets */; };
-		147C94BB2435556F001B6968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 147C94B92435556F001B6968 /* LaunchScreen.storyboard */; };
 		147C94C62435556F001B6968 /* ProsperoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94C52435556F001B6968 /* ProsperoTests.swift */; };
 		147C94D12435556F001B6968 /* ProsperoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94D02435556F001B6968 /* ProsperoUITests.swift */; };
 		147C94E724355C75001B6968 /* ProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94E624355C75001B6968 /* ProductionView.swift */; };
@@ -54,7 +53,6 @@
 		147C94B22435556B001B6968 /* ProductionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionListView.swift; sourceTree = "<group>"; };
 		147C94B42435556F001B6968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		147C94B72435556F001B6968 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		147C94BA2435556F001B6968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		147C94BC2435556F001B6968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		147C94C12435556F001B6968 /* ProsperoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProsperoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		147C94C52435556F001B6968 /* ProsperoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsperoTests.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				147C94DE2435563A001B6968 /* Models */,
 				923DB8AA25450310009FB5E0 /* Util */,
 				147C94B42435556F001B6968 /* Assets.xcassets */,
-				147C94B92435556F001B6968 /* LaunchScreen.storyboard */,
 				147C94BC2435556F001B6968 /* Info.plist */,
 				147C94B62435556F001B6968 /* Preview Content */,
 			);
@@ -328,7 +325,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				14F13CF72435D08C00304366 /* .swiftlint.yml in Resources */,
-				147C94BB2435556F001B6968 /* LaunchScreen.storyboard in Resources */,
 				147C94B82435556F001B6968 /* Preview Assets.xcassets in Resources */,
 				147C94B52435556F001B6968 /* Assets.xcassets in Resources */,
 			);
@@ -424,17 +420,6 @@
 			targetProxy = 147C94CD2435556F001B6968 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		147C94B92435556F001B6968 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				147C94BA2435556F001B6968 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		147C94D32435556F001B6968 /* Debug */ = {
@@ -559,13 +544,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Prospero/Preview Content\"";
+				DEVELOPMENT_TEAM = L5HXPF2368;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Prospero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.prospero.Prospero;
+				PRODUCT_BUNDLE_IDENTIFIER = io.palumbo.Prospero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -578,13 +564,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Prospero/Preview Content\"";
+				DEVELOPMENT_TEAM = L5HXPF2368;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Prospero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.prospero.Prospero;
+				PRODUCT_BUNDLE_IDENTIFIER = io.palumbo.Prospero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

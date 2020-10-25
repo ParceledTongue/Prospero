@@ -38,25 +38,14 @@ class AppConfiguration: ObservableObject {
     }
 
     func addProduction(_ production: Production) {
-        if !productions.contains(where: { $0.id == production.id }) {
-            let insertionIndex = productions.firstIndex(where: { productionAtIdx in
-                alphabeticalCollator(production, productionAtIdx)
-            }) ?? productions.endIndex
-            productions.insert(production, at: insertionIndex)
-        }
+        productions.insert(production, at: 0)
     }
 
     func removeProductions(atOffsets offsets: IndexSet) {
         productions.remove(atOffsets: offsets)
     }
-}
 
-private let alphabeticalCollator: (Production, Production) -> Bool = { lhs, rhs in
-    let lhs = lhs.show.title.lowercased().hasPrefix("the ")
-        ? String(lhs.show.title.lowercased().dropFirst(4))
-        : lhs.show.title.lowercased()
-    let rhs = rhs.show.title.lowercased().hasPrefix("the ")
-        ? String(rhs.show.title.lowercased().dropFirst(4))
-        : rhs.show.title.lowercased()
-    return lhs < rhs
+    func moveProductions(fromOffsets source: IndexSet, toOffset destination: Int) {
+        productions.move(fromOffsets: source, toOffset: destination)
+    }
 }

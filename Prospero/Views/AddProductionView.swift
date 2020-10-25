@@ -30,6 +30,7 @@ struct AddProductionView: View {
                         onCompletion: { step = .confirmProduction($0) }
                     )
                     .padding(.bottom)
+                    .padding(.bottom)
                     Button("Cancel") { isAddingProduction = false }
                 }
                 .transition(.horizontalProgression)

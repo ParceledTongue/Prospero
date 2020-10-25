@@ -21,14 +21,16 @@ struct ProductionListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(config.productions) {
-                    ProductionRow(production: $0, selection: $selection)
+                Section {
+                    ForEach(config.productions) {
+                        ProductionRow(production: $0, selection: $selection)
+                    }
+                    .onMove(perform: config.moveProductions)
+                    .onDelete(perform: config.removeProductions)
                 }
-                .onDelete {
-                    config.removeProductions(atOffsets: $0)
+                Section {
+                    addProductionRow
                 }
-
-                addProductionRow
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarItems(
@@ -96,8 +98,17 @@ struct ProductionListView_Previews: PreviewProvider {
         Group {
             ProductionListView(selection: .constant(nil))
                 .environmentObject(AppConfiguration())
-            ProductionListView(selection: .constant(nil))
-                .environmentObject(AppConfiguration())
         }
+    }
+}
+
+// MARK: - Custom Menu Context Implementation
+struct PreviewContextMenu<Content: View> {
+    let destination: Content
+    let actionProvider: UIContextMenuActionProvider?
+
+    init(destination: Content, actionProvider: UIContextMenuActionProvider? = nil) {
+        self.destination = destination
+        self.actionProvider = actionProvider
     }
 }

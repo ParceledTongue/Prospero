@@ -11,7 +11,8 @@ struct RootView: View {
 
     @EnvironmentObject var config: AppConfiguration
 
-    @State var selection: Int?
+    @SceneStorage("RootView.selection")
+    var selection: Int?
 
     var body: some View {
         ProductionListView(selection: $selection)
