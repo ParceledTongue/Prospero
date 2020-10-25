@@ -43,6 +43,7 @@ struct AddProductionView: View {
                             isAddingProduction = false
                         }
                     )
+                    .padding(.bottom)
                     Button("This is not my production") { step = .enterCode }
                         .font(.system(.footnote, design: .rounded))
                 }

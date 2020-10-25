@@ -52,6 +52,7 @@ struct OnboardingView: View {
                         production: production,
                         onCompletion: { step = .welcomeMember(production, $0) }
                     )
+                    .padding(.bottom)
                     Button("This is not my production") { step = .welcome }
                         .font(.system(.footnote, design: .rounded))
                 }

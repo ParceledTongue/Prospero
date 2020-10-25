@@ -10,20 +10,17 @@ import PromiseKit
 
 struct ProductionCodeEntryView: View {
 
-    struct InfoConfiguration {
-        let text: String
-        let color: Color
-    }
-
     static let codeLength = 5
 
     @State var productionCode = ""
 
     var onCompletion: (Production) -> Void = { _ in }
 
-    @State private var extraInfo: InfoConfiguration?
+    @State private var isShowingHelp = false
 
     @State private var isProcessing = false
+
+    @State private var errorMessage = ""
 
     @State private var failedAttempts: CGFloat = 0
 
@@ -33,29 +30,36 @@ struct ProductionCodeEntryView: View {
                 .font(Font.system(.callout))
                 .foregroundColor(.secondary)
             CodeField(code: $productionCode, length: ProductionCodeEntryView.codeLength)
-                .padding(.bottom)
-                .onChange(of: productionCode, perform: { _ in
-                    if !isProcessing && productionCode.count == ProductionCodeEntryView.codeLength {
-                        submit()
-                    }
-                })
-                .disabled(isProcessing)
-                .modifier(Shake(animatableData: failedAttempts).animation(.default))
+            .onChange(of: productionCode, perform: { _ in
+                if !productionCode.isEmpty {
+                    errorMessage = ""
+                }
+                if !isProcessing && productionCode.count == ProductionCodeEntryView.codeLength {
+                    submit()
+                }
+            })
+            .disabled(isProcessing)
+            .modifier(Shake(animatableData: failedAttempts).animation(.default))
+            .padding(.bottom)
 
-            if let extraInfo = extraInfo {
-                Text(extraInfo.text)
+            if !errorMessage.isEmpty {
+                Text(errorMessage)
                     .font(.footnote)
-                    .foregroundColor(extraInfo.color)
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 40)
+                    .padding(.bottom)
+            }
+
+            if isShowingHelp {
+                Text("You should have recieved a short code for your production. If you're unable to find this code, reach out to your production team.")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
             } else {
-                Button("Production code?") {
-                    extraInfo = .init(
-                        text: "You should have recieved a short code for your production. If you're unable to find this code, reach out to your production team.",
-                        color: .secondary
-                    )
-                }
-                .font(.footnote)
+                Button("Production code?") { isShowingHelp = true }
+                    .font(.footnote)
             }
         }
     }
@@ -75,13 +79,9 @@ struct ProductionCodeEntryView: View {
                 failedAttempts += 1
                 throw ShowNotFoundError()
             }
-            extraInfo = nil
             onCompletion(production)
         }.catch { err in
-            extraInfo = .init(
-                text: err.localizedDescription,
-                color: .red
-            )
+            errorMessage = err.localizedDescription
         }.finally {
             productionCode = ""
             isProcessing = false

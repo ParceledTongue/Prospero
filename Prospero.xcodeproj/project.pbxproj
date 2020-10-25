@@ -16,6 +16,7 @@
 		147C94D12435556F001B6968 /* ProsperoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94D02435556F001B6968 /* ProsperoUITests.swift */; };
 		147C94E724355C75001B6968 /* ProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94E624355C75001B6968 /* ProductionView.swift */; };
 		14F13CF72435D08C00304366 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14F13CF62435D08C00304366 /* .swiftlint.yml */; };
+		923AE4F02545D2BD00AFDB01 /* String+isValidEmailAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923AE4EF2545D2BD00AFDB01 /* String+isValidEmailAddress.swift */; };
 		923DB8762544FDA0009FB5E0 /* CodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8752544FDA0009FB5E0 /* CodeField.swift */; };
 		923DB87E2544FE57009FB5E0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB87D2544FE57009FB5E0 /* Models.swift */; };
 		923DB8862544FEE9009FB5E0 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8852544FEE9009FB5E0 /* MockServer.swift */; };
@@ -62,6 +63,7 @@
 		147C94D22435556F001B6968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		147C94E624355C75001B6968 /* ProductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionView.swift; sourceTree = "<group>"; };
 		14F13CF62435D08C00304366 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		923AE4EF2545D2BD00AFDB01 /* String+isValidEmailAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidEmailAddress.swift"; sourceTree = "<group>"; };
 		923DB8752544FDA0009FB5E0 /* CodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeField.swift; sourceTree = "<group>"; };
 		923DB87D2544FE57009FB5E0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		923DB8852544FEE9009FB5E0 /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
@@ -176,8 +178,8 @@
 		147C94DE2435563A001B6968 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				923DB87D2544FE57009FB5E0 /* Models.swift */,
 				923DB8C425450B08009FB5E0 /* AppConfiguration.swift */,
+				923DB87D2544FE57009FB5E0 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				923DB8B4254505ED009FB5E0 /* AnyTransition+horizontalProgression.swift */,
+				923AE4EF2545D2BD00AFDB01 /* String+isValidEmailAddress.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				147C94E724355C75001B6968 /* ProductionView.swift in Sources */,
 				923DB8A6254502FD009FB5E0 /* MemberConfirmationView.swift in Sources */,
 				923DB89C254502C3009FB5E0 /* OnboardingView.swift in Sources */,
+				923AE4F02545D2BD00AFDB01 /* String+isValidEmailAddress.swift in Sources */,
 				923DB8A1254502D8009FB5E0 /* ProductionCodeEntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

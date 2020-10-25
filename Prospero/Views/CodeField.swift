@@ -17,12 +17,16 @@ struct CodeField: View {
 
     let length: Int
 
+    var onEditingChanged: (Bool) -> Void = { _ in }
+
+    var onCommit: () -> Void = {}
+
     var body: some View {
         ZStack(alignment: Alignment.center) {
             Text(displayTextFor(code: code))
                 .font(CodeField.inputFont)
             // Invisible text field to handle actual input.
-            TextField("", text: $code)
+            TextField("", text: $code, onEditingChanged: onEditingChanged, onCommit: onCommit)
                 .font(CodeField.inputFont)
                 .multilineTextAlignment(.center)
                 .keyboardType(.numberPad)
