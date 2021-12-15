@@ -32,15 +32,15 @@ struct ProductionListView: View {
                     addProductionRow
                 }
             }
-            .listStyle(InsetGroupedListStyle())
+            .listStyle(.insetGrouped)
             .navigationBarItems(
                 trailing: EditButton().disabled(config.productions.isEmpty)
             )
             .environment(\.editMode, $editMode)
             .navigationBarTitle("Productions")
             .sheet(isPresented: $isAddingProduction) {
-                AddProductionView(
-                    isAddingProduction: $isAddingProduction,
+                NewProductionModalView(
+                    isOpen: $isAddingProduction,
                     onSuccess: addAndOpenProduction
                 )
             }
@@ -48,7 +48,7 @@ struct ProductionListView: View {
     }
 
     private var addProductionRow: some View {
-        Button(action: { isAddingProduction = true }) {
+        Button() { isAddingProduction = true } label: {
             HStack {
                 Text("Add Production")
                     .foregroundColor(.accentColor)
@@ -60,26 +60,24 @@ struct ProductionListView: View {
         .disabled(editMode != .inactive)
     }
 
-    func addAndOpenProduction(_ newProduction: Production) {
-        config.addProduction(newProduction)
-        // I think this is a SwiftUI bug... Seems like we need to wait a bit after re-adding to make
-        // sure the selection will work, but only sometimes?
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
-            selection = newProduction.id
+    func addAndOpenProduction(_ newProduction: UserProduction) {
+        if !config.productions.contains(newProduction) {
+            config.addProduction(newProduction)
         }
+        selection = newProduction.id.hashValue
     }
 }
 
 private struct ProductionRow: View {
 
-    let production: Production
+    let production: UserProduction
 
     @Binding var selection: Int?
 
     var body: some View {
         NavigationLink(
             destination: ProductionView(production: production),
-            tag: production.id,
+            tag: production.id.hashValue,
             selection: $selection
         ) {
             VStack(alignment: .leading) {

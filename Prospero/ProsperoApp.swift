@@ -9,12 +9,18 @@ import SwiftUI
 
 @main
 struct ProsperoApp: App {
+
+    init() {
+        UNUserNotificationCenter.current().delegate = ProsperoNotificationCenterDelegate.instance
+    }
+
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(AppConfiguration())
         }
     }
+
 }
 
 struct ProsperoApp_Previews: PreviewProvider {

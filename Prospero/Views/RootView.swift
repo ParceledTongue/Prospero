@@ -21,7 +21,7 @@ struct RootView: View {
                 OnboardingView(
                     onCompletion: { production in
                         config.addProduction(production)
-                        selection = production.id
+                        selection = production.id.hashValue
                         config.isOnboarded = true
                     }
                 )

@@ -11,7 +11,9 @@ struct MemberConfirmationView: View {
 
     let production: Production
 
-    var onCompletion: (Production.Member) -> Void = { _ in }
+    var onCompletion: (UserProduction) -> Void
+
+    var onCancel: () -> Void
 
     @State private var emailAddress = ""
 
@@ -40,7 +42,7 @@ struct MemberConfirmationView: View {
                 .textContentType(.emailAddress)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .modifier(Shake(animatableData: failedAttempts).animation(.default))
+                .shake(with: failedAttempts)
                 .padding(.bottom)
                 .onChange(of: emailAddress, perform: { _ in
                     if !emailAddress.isEmpty {
@@ -53,9 +55,15 @@ struct MemberConfirmationView: View {
                     .font(.system(.footnote, design: .rounded))
                     .foregroundColor(.red)
                     .multilineTextAlignment(.center)
+                    .neverTruncated()
                     .padding(.horizontal, 40)
+                    .padding(.bottom)
             }
+
+            Button("This is not my production", action: onCancel)
+                .font(.system(.footnote, design: .rounded))
         }
+        .animation(.default, value: errorMessage)
     }
 
     private func submitEmailAddress() {
@@ -64,7 +72,7 @@ struct MemberConfirmationView: View {
             return
         }
         if let member = production.members.first(where: { $0.email == emailAddress }) {
-            onCompletion(member)
+            onCompletion(UserProduction(id: UUID(), production: production, member: member))
         } else {
             failWithMessage("We couldn't find anyone with that email address. Make sure you're using the same email you gave to your production team.")
         }
@@ -79,7 +87,10 @@ struct MemberConfirmationView: View {
 
 struct MemberConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        MemberConfirmationView(production: DemoProductions.stupidFuckingBird)
-            .animation(.default)
+        MemberConfirmationView(
+            production: DemoProductions.stupidFuckingBird,
+            onCompletion: { print($0) },
+            onCancel: { print("Cancelled") }
+        )
     }
 }

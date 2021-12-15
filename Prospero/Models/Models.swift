@@ -6,47 +6,43 @@
 //
 
 import Foundation
+import PhoneNumberKit
 
-struct Production: Identifiable, Codable {
+struct Production: Equatable, Codable {
 
-    struct Member: Codable {
+    struct Member: Equatable, Codable {
         let person: Person
         let email: String
+        let phoneNumber: PhoneNumber
+        var name: PersonNameComponents { person.name }
     }
 
-    let id: Int
     let show: Show
     let company: Company
     let members: [Member]
 }
 
-struct Show: Codable {
+struct UserProduction: Equatable, Identifiable, Codable {
+
+    let id: UUID
+    let production: Production
+    let member: Production.Member
+    var show: Show { production.show }
+    var company: Company { production.company }
+    var members: [Production.Member] { production.members }
+    var person: Person { member.person }
+
+}
+
+struct Show: Equatable, Codable {
     let title: String
     let playwright: Person
 }
 
-struct Company: Codable {
+struct Company: Equatable, Codable {
     let name: String
 }
 
-struct Person: Codable {
-
-    struct Name: Codable {
-        let first: String
-        let last: String
-        let middle: String?
-
-        init(
-            first: String,
-            last: String,
-            middle: String? = nil
-        ) {
-            self.first = first
-            self.last = last
-            self.middle = middle
-        }
-    }
-
-    let name: Name
-
+struct Person: Equatable, Codable {
+    let name: PersonNameComponents
 }

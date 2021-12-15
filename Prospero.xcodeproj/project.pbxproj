@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		140E532124359049007936B7 /* AddProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E532024359049007936B7 /* AddProductionView.swift */; };
-		140E532424359706007936B7 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 140E532324359706007936B7 /* PromiseKit */; };
+		140E532124359049007936B7 /* NewProductionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E532024359049007936B7 /* NewProductionModalView.swift */; };
 		147C94B32435556B001B6968 /* ProductionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94B22435556B001B6968 /* ProductionListView.swift */; };
 		147C94B52435556F001B6968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147C94B42435556F001B6968 /* Assets.xcassets */; };
 		147C94B82435556F001B6968 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147C94B72435556F001B6968 /* Preview Assets.xcassets */; };
@@ -16,6 +15,8 @@
 		147C94D12435556F001B6968 /* ProsperoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94D02435556F001B6968 /* ProsperoUITests.swift */; };
 		147C94E724355C75001B6968 /* ProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147C94E624355C75001B6968 /* ProductionView.swift */; };
 		14F13CF72435D08C00304366 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14F13CF62435D08C00304366 /* .swiftlint.yml */; };
+		920D7DB02684F6B800DDB56E /* TwoFactorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920D7DAF2684F6B800DDB56E /* TwoFactorView.swift */; };
+		9230311F276A912C00232FC4 /* TimeInterval+converted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230311E276A912C00232FC4 /* TimeInterval+converted.swift */; };
 		923AE4F02545D2BD00AFDB01 /* String+isValidEmailAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923AE4EF2545D2BD00AFDB01 /* String+isValidEmailAddress.swift */; };
 		923DB8762544FDA0009FB5E0 /* CodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8752544FDA0009FB5E0 /* CodeField.swift */; };
 		923DB87E2544FE57009FB5E0 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB87D2544FE57009FB5E0 /* Models.swift */; };
@@ -29,6 +30,12 @@
 		923DB8C025450A50009FB5E0 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8BF25450A50009FB5E0 /* RootView.swift */; };
 		923DB8C525450B08009FB5E0 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8C425450B08009FB5E0 /* AppConfiguration.swift */; };
 		923DB8D6254529D4009FB5E0 /* NotBindingPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923DB8D5254529D4009FB5E0 /* NotBindingPrefix.swift */; };
+		925248452672C94E00E2AD00 /* Task+sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925248442672C94E00E2AD00 /* Task+sleep.swift */; };
+		925EE003268622E10079750F /* ProsperoNotificationCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925EE002268622E10079750F /* ProsperoNotificationCenterDelegate.swift */; };
+		925EE00526865D370079750F /* AddProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925EE00426865D370079750F /* AddProductionView.swift */; };
+		929E6D552673FD8700AF1A3F /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 929E6D542673FD8700AF1A3F /* PhoneNumberKit */; };
+		92AB88D12689FFB3007FB9BA /* View+neverTruncated().swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB88D02689FFB3007FB9BA /* View+neverTruncated().swift */; };
+		92AB88D3268A0079007FB9BA /* String+nonBreaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB88D2268A0079007FB9BA /* String+nonBreaking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		140E532024359049007936B7 /* AddProductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductionView.swift; sourceTree = "<group>"; };
+		140E532024359049007936B7 /* NewProductionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductionModalView.swift; sourceTree = "<group>"; };
 		147C94AB2435556B001B6968 /* Prospero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prospero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147C94B22435556B001B6968 /* ProductionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionListView.swift; sourceTree = "<group>"; };
 		147C94B42435556F001B6968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +70,8 @@
 		147C94D22435556F001B6968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		147C94E624355C75001B6968 /* ProductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionView.swift; sourceTree = "<group>"; };
 		14F13CF62435D08C00304366 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		920D7DAF2684F6B800DDB56E /* TwoFactorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFactorView.swift; sourceTree = "<group>"; };
+		9230311E276A912C00232FC4 /* TimeInterval+converted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+converted.swift"; sourceTree = "<group>"; };
 		923AE4EF2545D2BD00AFDB01 /* String+isValidEmailAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidEmailAddress.swift"; sourceTree = "<group>"; };
 		923DB8752544FDA0009FB5E0 /* CodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeField.swift; sourceTree = "<group>"; };
 		923DB87D2544FE57009FB5E0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -76,6 +85,11 @@
 		923DB8BF25450A50009FB5E0 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		923DB8C425450B08009FB5E0 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		923DB8D5254529D4009FB5E0 /* NotBindingPrefix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotBindingPrefix.swift; sourceTree = "<group>"; };
+		925248442672C94E00E2AD00 /* Task+sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+sleep.swift"; sourceTree = "<group>"; };
+		925EE002268622E10079750F /* ProsperoNotificationCenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsperoNotificationCenterDelegate.swift; sourceTree = "<group>"; };
+		925EE00426865D370079750F /* AddProductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductionView.swift; sourceTree = "<group>"; };
+		92AB88D02689FFB3007FB9BA /* View+neverTruncated().swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+neverTruncated().swift"; sourceTree = "<group>"; };
+		92AB88D2268A0079007FB9BA /* String+nonBreaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+nonBreaking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				140E532424359706007936B7 /* PromiseKit in Frameworks */,
+				929E6D552673FD8700AF1A3F /* PhoneNumberKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,14 +201,16 @@
 		147C94E524355C60001B6968 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				140E532024359049007936B7 /* AddProductionView.swift */,
+				140E532024359049007936B7 /* NewProductionModalView.swift */,
 				923DB8752544FDA0009FB5E0 /* CodeField.swift */,
 				923DB8A5254502FD009FB5E0 /* MemberConfirmationView.swift */,
+				920D7DAF2684F6B800DDB56E /* TwoFactorView.swift */,
 				923DB89B254502C3009FB5E0 /* OnboardingView.swift */,
 				923DB8A0254502D8009FB5E0 /* ProductionCodeEntryView.swift */,
 				147C94B22435556B001B6968 /* ProductionListView.swift */,
 				147C94E624355C75001B6968 /* ProductionView.swift */,
 				923DB8BF25450A50009FB5E0 /* RootView.swift */,
+				925EE00426865D370079750F /* AddProductionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +220,7 @@
 			children = (
 				923DB8AB2545031B009FB5E0 /* Shake.swift */,
 				923DB8D5254529D4009FB5E0 /* NotBindingPrefix.swift */,
+				925EE002268622E10079750F /* ProsperoNotificationCenterDelegate.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -213,6 +230,10 @@
 			children = (
 				923DB8B4254505ED009FB5E0 /* AnyTransition+horizontalProgression.swift */,
 				923AE4EF2545D2BD00AFDB01 /* String+isValidEmailAddress.swift */,
+				925248442672C94E00E2AD00 /* Task+sleep.swift */,
+				92AB88D02689FFB3007FB9BA /* View+neverTruncated().swift */,
+				92AB88D2268A0079007FB9BA /* String+nonBreaking.swift */,
+				9230311E276A912C00232FC4 /* TimeInterval+converted.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,7 +256,7 @@
 			);
 			name = Prospero;
 			packageProductDependencies = (
-				140E532324359706007936B7 /* PromiseKit */,
+				929E6D542673FD8700AF1A3F /* PhoneNumberKit */,
 			);
 			productName = Prospero;
 			productReference = 147C94AB2435556B001B6968 /* Prospero.app */;
@@ -284,7 +305,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					147C94AA2435556B001B6968 = {
 						CreatedOnToolsVersion = 11.4;
@@ -309,7 +330,7 @@
 			);
 			mainGroup = 147C94A22435556B001B6968;
 			packageReferences = (
-				140E532224359706007936B7 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				929E6D532673FD8700AF1A3F /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 			);
 			productRefGroup = 147C94AC2435556B001B6968 /* Products */;
 			projectDirPath = "";
@@ -375,20 +396,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925EE00526865D370079750F /* AddProductionView.swift in Sources */,
 				923DB87E2544FE57009FB5E0 /* Models.swift in Sources */,
+				9230311F276A912C00232FC4 /* TimeInterval+converted.swift in Sources */,
+				925248452672C94E00E2AD00 /* Task+sleep.swift in Sources */,
 				923DB8B5254505ED009FB5E0 /* AnyTransition+horizontalProgression.swift in Sources */,
 				923DB8972545029E009FB5E0 /* ProsperoApp.swift in Sources */,
 				923DB8C025450A50009FB5E0 /* RootView.swift in Sources */,
 				923DB8AC2545031B009FB5E0 /* Shake.swift in Sources */,
 				923DB8C525450B08009FB5E0 /* AppConfiguration.swift in Sources */,
-				140E532124359049007936B7 /* AddProductionView.swift in Sources */,
+				140E532124359049007936B7 /* NewProductionModalView.swift in Sources */,
 				923DB8762544FDA0009FB5E0 /* CodeField.swift in Sources */,
+				920D7DB02684F6B800DDB56E /* TwoFactorView.swift in Sources */,
 				923DB8862544FEE9009FB5E0 /* MockServer.swift in Sources */,
+				925EE003268622E10079750F /* ProsperoNotificationCenterDelegate.swift in Sources */,
 				923DB8D6254529D4009FB5E0 /* NotBindingPrefix.swift in Sources */,
+				92AB88D12689FFB3007FB9BA /* View+neverTruncated().swift in Sources */,
 				147C94B32435556B001B6968 /* ProductionListView.swift in Sources */,
 				147C94E724355C75001B6968 /* ProductionView.swift in Sources */,
 				923DB8A6254502FD009FB5E0 /* MemberConfirmationView.swift in Sources */,
 				923DB89C254502C3009FB5E0 /* OnboardingView.swift in Sources */,
+				92AB88D3268A0079007FB9BA /* String+nonBreaking.swift in Sources */,
 				923AE4F02545D2BD00AFDB01 /* String+isValidEmailAddress.swift in Sources */,
 				923DB8A1254502D8009FB5E0 /* ProductionCodeEntryView.swift in Sources */,
 			);
@@ -453,6 +481,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -477,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -514,6 +543,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -532,7 +562,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -704,21 +734,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		140E532224359706007936B7 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+		929E6D532673FD8700AF1A3F /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit.git";
 			requirement = {
-				branch = v7;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		140E532324359706007936B7 /* PromiseKit */ = {
+		929E6D542673FD8700AF1A3F /* PhoneNumberKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 140E532224359706007936B7 /* XCRemoteSwiftPackageReference "PromiseKit" */;
-			productName = PromiseKit;
+			package = 929E6D532673FD8700AF1A3F /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = PhoneNumberKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductionView: View {
 
-    let production: Production
+    let production: UserProduction
 
     var body: some View {
         Text("// TODO")
@@ -23,7 +23,11 @@ struct ProductionView: View {
 struct ProductionView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProductionView(production: DemoProductions.constellations)
+            ProductionView(production: .init(
+                id: .init(),
+                production: DemoProductions.constellations,
+                member: DemoMembers.zachPalumbo
+            ))
         }
     }
 }

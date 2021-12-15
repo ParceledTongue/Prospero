@@ -2,22 +2,24 @@
 //  AddProductionView.swift
 //  Prospero
 //
-//  Created by Zach Palumbo on 4/1/20.
+//  Created by Zach Palumbo on 6/25/21.
 //
 
 import SwiftUI
-import PromiseKit
 
 struct AddProductionView: View {
 
-    enum Step {
+    enum Step: Equatable {
         case enterCode
         case confirmProduction(Production)
+        case twoFactor(UserProduction)
     }
 
-    @Binding var isAddingProduction: Bool
+    @EnvironmentObject var config: AppConfiguration
 
-    var onSuccess: (Production) -> Void = { _ in }
+    var stepAnimation: Animation? = .default
+
+    var onSuccess: (UserProduction) -> Void
 
     @State private var step = Step.enterCode
 
@@ -25,38 +27,46 @@ struct AddProductionView: View {
         Group {
             switch step {
             case .enterCode:
-                VStack {
-                    ProductionCodeEntryView(
-                        onCompletion: { step = .confirmProduction($0) }
-                    )
-                    .padding(.bottom)
-                    .padding(.bottom)
-                    Button("Cancel") { isAddingProduction = false }
-                }
+                ProductionCodeEntryView(
+                    onCompletion: { production in
+                        if let existingProduction = config.productions.first(where: { localProduction in
+                            localProduction.production == production
+                        }) {
+                            onSuccess(existingProduction)
+                        } else {
+                            step = .confirmProduction(production)
+                        }
+                    }
+                )
                 .transition(.horizontalProgression)
             case .confirmProduction(let production):
                 VStack {
                     MemberConfirmationView(
                         production: production,
-                        onCompletion: { _ in
-                            onSuccess(production)
-                            isAddingProduction = false
-                        }
+                        onCompletion: { step = .twoFactor($0) },
+                        onCancel: { step = .enterCode }
+                    )
+                }
+                .transition(.horizontalProgression)
+            case .twoFactor(let production):
+                VStack {
+                    TwoFactorView(
+                        production: production,
+                        onCompletion: onSuccess,
+                        onCancel: { step = .enterCode }
                     )
                     .padding(.bottom)
-                    Button("This is not my production") { step = .enterCode }
-                        .font(.system(.footnote, design: .rounded))
                 }
                 .transition(.horizontalProgression)
             }
         }
-        .animation(.default)
+        .animation(stepAnimation, value: step)
     }
-
 }
 
-struct AddProductionView_Previews: PreviewProvider {
+struct AddProductionViewNew_Previews: PreviewProvider {
     static var previews: some View {
-        AddProductionView(isAddingProduction: .constant(true))
+        AddProductionView(onSuccess: { print($0) })
+            .environmentObject(AppConfiguration())
     }
 }

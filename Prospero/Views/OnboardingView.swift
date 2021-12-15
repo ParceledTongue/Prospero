@@ -9,78 +9,61 @@ import SwiftUI
 
 struct OnboardingView: View {
 
-    enum Step {
+    enum Step: Equatable {
         case preWelcome
         case welcome
-        case confirmProduction(Production)
-        case welcomeMember(Production, Production.Member)
+        case addProduction
+        case welcomeMember(UserProduction)
     }
 
-    var onCompletion: (Production) -> Void = { _ in }
+    var onCompletion: (UserProduction) -> Void
 
     @State private var step = Step.preWelcome
 
-    // Just used to animate in code entry with a delay during the Welcome step.
-    @State private var isCodeEntryShowing = false
+    private let slowSpring = Animation.spring(response: 0.7, dampingFraction: 0.7)
 
     var body: some View {
         Group {
             switch step {
-            case .preWelcome: Group {}
+            case .preWelcome:
+                EmptyView()
             case .welcome:
+                Text("Welcome to Prospero")
+                    .font(.system(.title, design: .rounded))
+                    .fontWeight(.semibold)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .transition(.horizontalProgression)
+            case .addProduction:
+                AddProductionView(
+                    stepAnimation: slowSpring,
+                    onSuccess: { step = .welcomeMember($0) }
+                )
+                    .frame(maxWidth: .infinity)
+                    .transition(.horizontalProgression)
+            case .welcomeMember(let production):
                 VStack {
-                    Text("Welcome to Prospero")
-                        .font(.system(.title, design: .rounded))
-                        .fontWeight(.semibold)
-                        .padding()
-
-                    if isCodeEntryShowing {
-                        ProductionCodeEntryView(
-                            onCompletion: { step = .confirmProduction($0) }
-                        )
-                    }
-                }
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500)) {
-                        isCodeEntryShowing = true
-                    }
-                }
-                .transition(.horizontalProgression)
-            case .confirmProduction(let production):
-                VStack {
-                    MemberConfirmationView(
-                        production: production,
-                        onCompletion: { step = .welcomeMember(production, $0) }
-                    )
-                    .padding(.bottom)
-                    Button("This is not my production") { step = .welcome }
-                        .font(.system(.footnote, design: .rounded))
-                }
-                .transition(.horizontalProgression)
-            case .welcomeMember(let production, let member):
-                VStack {
-                    Text("All set, \(member.person.name.first) 🎉")
+                    Text("All set, \(production.member.name.formatted(.name(style: .short))) 🎉")
                         .font(.system(.title2, design: .rounded))
                         .padding(.bottom)
                     Button("Let's get started") { onCompletion(production) }
                         .font(.system(.subheadline, design: .rounded))
                 }
-                .transition(AnyTransition.opacity.animation(
-                    Animation.easeInOut(duration: 2).delay(0.5)
-                ))
+                .transition(.opacity.animation(.easeInOut(duration: 2).delay(0.5)))
             }
         }
-        .animation(.spring(response: 0.7, dampingFraction: 0.7))
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-                step = .welcome
-            }
+        .animation(slowSpring, value: step)
+        .task {
+            await Task.sleep(seconds: 0.5)
+            step = .welcome
+            await Task.sleep(seconds: 2)
+            step = .addProduction
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        OnboardingView(onCompletion: { print($0) })
     }
 }

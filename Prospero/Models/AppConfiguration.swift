@@ -13,7 +13,7 @@ class AppConfiguration: ObservableObject {
 
     private let isOnboardedKey = "isOnboarded"
 
-    @Published private(set) var productions: [Production] {
+    @Published private(set) var productions: [UserProduction] {
         didSet {
             do {
                 let data = try JSONEncoder().encode(productions)
@@ -32,12 +32,12 @@ class AppConfiguration: ObservableObject {
 
     init() {
         productions = UserDefaults.standard.data(forKey: productionsKey)
-            .flatMap { try? JSONDecoder().decode([Production].self, from: $0) }
+            .flatMap { try? JSONDecoder().decode([UserProduction].self, from: $0) }
             ?? []
         isOnboarded = UserDefaults.standard.bool(forKey: isOnboardedKey)
     }
 
-    func addProduction(_ production: Production) {
+    func addProduction(_ production: UserProduction) {
         productions.insert(production, at: 0)
     }
 

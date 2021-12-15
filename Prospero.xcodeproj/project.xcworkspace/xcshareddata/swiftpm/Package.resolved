@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "PromiseKit",
-        "repositoryURL": "https://github.com/mxcl/PromiseKit",
+        "package": "PhoneNumberKit",
+        "repositoryURL": "https://github.com/marmelroy/PhoneNumberKit.git",
         "state": {
-          "branch": "v7",
-          "revision": "9f494dd1c312b1325d709853255558585c070c46",
-          "version": null
+          "branch": null,
+          "revision": "1ef0431b971f69c48ca5eb4cdba07f2c5da54c35",
+          "version": "3.3.3"
         }
       }
     ]

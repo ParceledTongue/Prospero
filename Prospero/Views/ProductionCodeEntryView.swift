@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PromiseKit
 
 struct ProductionCodeEntryView: View {
 
@@ -14,7 +13,7 @@ struct ProductionCodeEntryView: View {
 
     @State var productionCode = ""
 
-    var onCompletion: (Production) -> Void = { _ in }
+    var onCompletion: (Production) -> Void
 
     @State private var isShowingHelp = false
 
@@ -29,24 +28,31 @@ struct ProductionCodeEntryView: View {
             Text("Please enter your production code.")
                 .font(Font.system(.callout))
                 .foregroundColor(.secondary)
-            CodeField(code: $productionCode, length: ProductionCodeEntryView.codeLength)
-            .onChange(of: productionCode, perform: { _ in
-                if !productionCode.isEmpty {
-                    errorMessage = ""
-                }
-                if !isProcessing && productionCode.count == ProductionCodeEntryView.codeLength {
-                    submit()
-                }
-            })
-            .disabled(isProcessing)
-            .modifier(Shake(animatableData: failedAttempts).animation(.default))
-            .padding(.bottom)
+            CodeField(
+                code: $productionCode,
+                length: ProductionCodeEntryView.codeLength,
+                entryType: .alphabetic
+            )
+                .disabled(isProcessing)
+                .opacity(isProcessing ? 0 : 1)
+                .overlay { if isProcessing { ProgressView() } }
+                .shake(with: failedAttempts)
+                .padding(.bottom)
+                .onChange(of: productionCode, perform: { _ in
+                    if !productionCode.isEmpty {
+                        errorMessage = ""
+                    }
+                    if !isProcessing && productionCode.count >= ProductionCodeEntryView.codeLength {
+                        Task { await submit() }
+                    }
+                })
 
             if !errorMessage.isEmpty {
                 Text(errorMessage)
                     .font(.system(.footnote, design: .rounded))
                     .foregroundColor(.red)
                     .multilineTextAlignment(.center)
+                    .neverTruncated()
                     .padding(.horizontal, 40)
                     .padding(.bottom)
             }
@@ -58,39 +64,32 @@ struct ProductionCodeEntryView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
             } else {
-                Button("Production code?") { isShowingHelp = true }
-                    .font(.system(.footnote, design: .rounded))
+                Button("Production code?") {
+                    isShowingHelp = true
+                }
+                .font(.system(.footnote, design: .rounded))
             }
         }
+        .animation(.default, value: isShowingHelp)
+        .animation(.default, value: isProcessing)
+        .animation(.default, value: errorMessage)
     }
 
-    struct ShowNotFoundError: Error, LocalizedError {
-        public var errorDescription: String? {
-            "The code was not valid. Please try again."
-        }
-    }
-
-    private func submit() {
+    private func submit() async {
         isProcessing = true
-        firstly {
-            MockServer(latency: .milliseconds(500)).getProduction(for: productionCode)
-        }.done { production in
-            guard let production = production else {
-                failedAttempts += 1
-                throw ShowNotFoundError()
-            }
+        if let production = await MockServer.getProduction(for: productionCode) {
             onCompletion(production)
-        }.catch { err in
-            errorMessage = err.localizedDescription
-        }.finally {
-            productionCode = ""
-            isProcessing = false
+        } else {
+            failedAttempts += 1
+            errorMessage = "The code was not valid. Please try again."
         }
+        productionCode = ""
+        isProcessing = false
     }
 }
 
 struct ProductionCodeEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductionCodeEntryView()
+        ProductionCodeEntryView(onCompletion: { print($0) })
     }
 }

@@ -1,6 +1,5 @@
 disabled_rules: # rule identifiers to exclude from running
-- identifier_name # this will complain about "id"
 - line_length # until we have a better localization approach
-- opening_brace # https://github.com/realm/SwiftLint/issues/1921
-- trailing_comma # actually prefer trailing-comma style
-- multiple_closures_with_trailing_closure # doesn't play nice with SwiftUI
+
+trailing_comma:
+  mandatory_comma: true

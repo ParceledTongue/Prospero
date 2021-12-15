@@ -19,3 +19,9 @@ struct Shake: GeometryEffect {
         ))
     }
 }
+
+extension View {
+    func shake(with animatableData: CGFloat) -> some View {
+        modifier(Shake(animatableData: animatableData).animation(.default))
+    }
+}
